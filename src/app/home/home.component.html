@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row" id="card-box">
+    <div class="col align-self-center">
+      <div class="card text-center shadow">
+        <div class="card-header text-white bg-primary">
+          <h5>GitHub Repository Issues</h5>
+        </div>
+        <div class="card-body">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row" id="card-box-issue" *ngIf="issues">
+    <div class="col align-self-center">
+      <div class="card text-center shadow">
+        <div class="card-header text-white bg-primary">
+          <h5>GitHub Repository Issues</h5>
+        </div>
+        <div class="card-body">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
