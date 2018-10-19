@@ -1,3 +1,27 @@
+<!--
 <p class="card-text">O que voce deseja fazer ?</p>
 <a routerLink="nova-issue" class="btn btn-primary" style="float: left; margin-left: 25%;">Criar Issue</a>
 <a routerLink="lista-issue" class="btn btn-primary" style="float: right; margin-right: 25%;">Listar Issues</a>
+-->
+
+<div class="card border-secondary mb-3 shadow" id="card-box">
+    <!--<div class="card-header">Owner & Repo name</div>-->
+    <div class="card-body text-secondary">
+        <form [formGroup]="formulario" (ngSubmit)="getRepo()">
+            <div class="form-group">
+                <small class="form-text text-muted">Insira a conta do usuario</small>
+                <input type="text" class="form-control" placeholder="Usuario" formControlName="user">
+            </div>
+            <div class="form-group">
+                <small class="form-text text-muted">Insira o nome do repositorio</small>
+                <input type="text" class="form-control" placeholder="Repositorio" formControlName="repository">
+            </div>
+            <button type="submit" class="btn btn-primary card-button" id="submit">Check</button>
+        </form>
+        <br />
+        <div *ngIf="repo">
+            <h6 class="card-title text-dark">Repository:</h6>
+            <p class="text-dark"><a routerLink="lista-issue">{{ repos$.name }}</a><span class="form-text text-muted">({{ repos$.full_name }})</span></p>
+        </div>
+    </div>
+</div>

@@ -22,23 +22,13 @@ export class ListaIssueComponent implements OnInit {
   constructor(private gitService: GitService) { }
 
   ngOnInit() {
+    this.gitService.getIssues(this.gitService.user, this.gitService.repo).subscribe(
+      gitService => this.issues$ = gitService
+    );
   }
 
   public getRepoInfo() {
 
-    const repoInfo: Dados = new Dados(
-      this.formulario.value.user,
-      this.formulario.value.repository
-    );
-
-    this.gitService.getIssues(repoInfo.user, repoInfo.repository).subscribe(
-      gitService => this.issues$ = gitService
-    );
-
-    console.log('Get return: ', this.issues$);
-
-
-    console.log('Data from input: ', repoInfo.user, repoInfo.repository);
   }
 
 }

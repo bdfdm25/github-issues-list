@@ -30,7 +30,7 @@ import { MenuComponent } from './home/menu/menu.component';
     ReactiveFormsModule,
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [ GitService ],
+  providers: [ GitService, ListaIssueComponent ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

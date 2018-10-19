@@ -1,25 +1,17 @@
-<p class="card-text">Informe a conta de usuario e o repositorio que deseja consultar:</p>
-<form [formGroup]="formulario" (ngSubmit)="getRepoInfo()">
-  <div class="form-group">
-    <input type="text" class="form-control" id="user" placeholder="Usuario" formControlName="user">
+<!-- Lista de issues presentes no dado repositorio -->
+<div class="container">
+  <div class="row">
+    <div *ngFor="let issue of issues$" class="col-sm-12">
+      <div class="card shadow" id="card-box-issue">
+        <h5 class="card-header">{{issue.title}}</h5>
+        <div class="card-body">
+          <p class="card-text">{{issue.body}}</p>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="form-group">
-    <input type="text" class="form-control" id="repository" placeholder="Repositorio" formControlName="repository">       
-  </div>
+
   <hr />
 
-  <div>
-    <ul>
-      <li *ngFor="let issue of issues$">
-        <a>{{ issue.title }}</a>
-        {{ issue.body }}
-      </li>
-    </ul>
-  </div>
-
-  <div class="bg-white">
-    <a routerLink="/home" class="btn btn-primary" style="float: left;">Voltar</a>
-    <button type="submit" id="submit" class="btn btn-primary" style="float: right;">Consulta</button>
-  </div>
-</form>
-
+  <button type="button" class="btn btn-primary">Nova Issue</button>
+</div>
